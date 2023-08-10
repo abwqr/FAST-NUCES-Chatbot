@@ -68,10 +68,11 @@ function Chatbot() {
 
 
   const [messages, setMessages] = useState([
-    {
-      message: "Hello, I'm ChatGPT! Ask me anything!",
-      sentTime: "just now",
-      sender: "ChatGPT"
+    {      
+        message: "What is your name and phone number",
+        sentTime: "just now",
+        sender: "ChatGPT"
+      
     }
   ]);
   const [isTyping, setIsTyping] = useState(false);
@@ -128,18 +129,18 @@ function Chatbot() {
         };
         const len = apiRequestBody.messages.length-1
         const body = {
-          "userid": propValue,
+          "userid": parseInt(propValue, 10),
           "question": apiRequestBody.messages[len].content
         }
 
-        console.log(apiRequestBody.messages)
+        console.log(body)
         const res = await axios.post("http://127.0.0.1:8000/chatbot", body, config);
         
         const response = res.data
         console.log(res)
 
         setMessages([...chatMessages, {
-            message: res.data.result,
+            message: res.data.answer,
             sender: "ChatGPT"
           }]);
           setIsTyping(false);

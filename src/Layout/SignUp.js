@@ -12,8 +12,8 @@ const SignUp = () => {
     var [formData, setFormData] = useState({
         userid: null,
         username: '',
-        degree: '',
-        phonenum: null
+        degree: 'CS',
+        phonenum: 123123123
     })
 
     const {userid, username, degree, phonenum} = formData
@@ -86,7 +86,7 @@ const SignUp = () => {
                                    className="form-control" required/>
                                 <i className="far fa-envelope"></i>
                             </div>
-
+{/* 
                            <div className="form-group">
                                 <label>Degree</label>
                                 <input type="text" placeholder="Enter Degree" name="degree" value={degree} onChange={e => onChange(e)}
@@ -101,7 +101,7 @@ const SignUp = () => {
                                    className="form-control" required/>
                                 <i className="fas fa-lock"></i>
                             </div>
-
+ */}
                             
 
                             <div className="form-group d-flex align-items-center justify-content-between">
